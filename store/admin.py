@@ -19,4 +19,4 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(Brand)
 class BrandAdmin(admin.ModelAdmin):
 
-    search_fields = ('name',)
+    search_fields = ('name', )

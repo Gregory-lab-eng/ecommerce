@@ -6,7 +6,7 @@ from .models import Category, Product, Brand
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    
+
     prepopulated_fields = {'slug': ('name',)}
 
 
@@ -19,4 +19,4 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(Brand)
 class BrandAdmin(admin.ModelAdmin):
 
-    search_fields = ('name', )
+    search_fields = ('name',)

@@ -4,25 +4,26 @@ from django.db import models
 
 
 class Category(models.Model):
- 
+
     name = models.CharField(max_length=250, db_index=True)
 
     slug = models.SlugField(max_length=250, unique=True)
 
     class Meta:
-       
+
         verbose_name_plural = 'categories'
-   
+
     def __str__(self):
-      
+
         return self.name
 
 
 class Brand(models.Model):
-    
+
     name = models.CharField(max_length=250)
 
     def __str__(self):
+
         return self.name
 
 
@@ -31,18 +32,18 @@ class Product(models.Model):
     name = models.CharField(max_length=250)
 
     brand = models.ForeignKey('Brand',
-            related_name='product',                   
-            on_delete=models.CASCADE, 
-            null=True, 
-            default='nobrand',
-        )
+                              related_name='product',
+                              on_delete=models.CASCADE,
+                              null=True,
+                              default='nobrand',
+                              )
 
-    category = models.ForeignKey('Category', 
-            related_name='product',
-            on_delete=models.CASCADE, 
-            null=True, 
-        )
-    
+    category = models.ForeignKey('Category',
+                                 related_name='product',
+                                 on_delete=models.CASCADE,
+                                 null=True,
+                                 )
+
     description = models.TextField(blank=True)
 
     slug = models.SlugField(max_length=250, unique=True)
